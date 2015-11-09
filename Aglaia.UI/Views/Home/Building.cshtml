@@ -1,9 +1,8 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@{ 
+    Layout = null;
 }
 
-
- <!-- BEGIN PAGE BAR -->
+<!-- BEGIN PAGE BAR -->
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
@@ -11,7 +10,11 @@
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Page Layouts</span>
+            <a href="#">建筑监测</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>行政楼</span>
         </li>
     </ul>
     <div class="page-toolbar">
@@ -49,17 +52,17 @@
 <!-- END PAGE BAR -->
 <!-- BEGIN PAGE TITLE-->
 <h3 class="page-title">
-    Blank Page Layout
-    <small>blank page layout</small>
+    建筑监测
+    <small>建筑用电列表</small>
 </h3>
 <!-- END PAGE TITLE-->
 <!-- END PAGE HEADER-->
 <div class="portlet light bordered">
     <div class="portlet-title">
         <div class="caption font-green-sharp">
-            <i class="icon-speech font-green-sharp"></i>
-            <span class="caption-subject bold uppercase"> Portlet</span>
-            <span class="caption-helper">weekly stats...</span>
+            <i class="fa fa-building"></i>
+            <span class="caption-subject bold">行政楼</span>
+            <span class="caption-helper"></span>
         </div>
         <div class="actions">
             <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
@@ -72,16 +75,48 @@
         </div>
     </div>
     <div class="portlet-body">
-        
+        <div class="tiles">
+            <div class="tile bg-green">
+                <div class="tile-body">
+                    <h4>A102</h4>
+                    <p> 当天用电: 15.5度 </p>
+                    <p> 当前功率: 0.5千瓦 </p>
+                </div>
+                <div class="tile-object">
+                    <div class="name"> 教务处 </div>
+                    <div class="number"> 在线 </div>
+                </div>
+            </div>
+            <div class="tile bg-green">
+                <div class="tile-body">
+                    <h4>A103</h4>
+                    <p> 当天用电: 3.2度 </p>
+                    <p> 当前功率: 0.2千瓦 </p>
+                </div>
+                <div class="tile-object">
+                    <div class="name"> 教务处 </div>
+                    <div class="number"> 在线 </div>
+                </div>
+            </div>
+            <div class="tile bg-grey-gallery">
+                <div class="tile-body">
+                    <h4>A104</h4>
+                    <p> 当天用电: 5.2度 </p>
+                    <p> 当前功率: 0.6千瓦 </p>
+                </div>
+                <div class="tile-object">
+                    <div class="name"> 财务处 </div>
+                    <div class="number"> 离线 </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-@section scripts {
-    <script type="text/javascript" src="~/Scripts/index.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            aglaia.initTree($('#tree_1'));
-            index.init();
-        });
-    </script>    
-}
+
+
+<script type="text/javascript">
+    $(function () {
+      
+    });
+</script>

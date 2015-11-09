@@ -1,0 +1,280 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!-- BEGIN SIDEBAR -->
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<div class="page-sidebar navbar-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+    <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+        <li class="sidebar-toggler-wrapper hide">
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler"> </div>
+            <!-- END SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li class="nav-item start active">
+            <a href="#">
+                <i class="fa fa-home"></i>
+                <span class="title">
+                    用电地图
+                </span>
+            </a>
+        </li>
+        <li class="heading">
+            <h3 class="uppercase">实时监测</h3>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-diamond"></i>
+                <span class="title">电表监测</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item">
+                    <div id="tree_1" class="tree-nav">
+                        <ul>
+                            <li>
+                                江南大学
+                                <ul>
+                                    <li>
+                                        一级电表
+                                        <ul>
+                                            <li> 进户表1 </li>
+                                            <li> 进户表2 </li>
+                                            <li> 进户表3 </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        二级电表 
+                                        <ul>
+                                            <li> 进户表4 </li>
+                                            <li> 进户表5 </li>
+                                            <li> 进户表6 </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                         三级电表
+                                        <ul>
+                                            <li> 二级电表 </li>
+                                            <li data-jstree='{ "type" : "file" }'> Another node </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-puzzle"></i>
+                <span class="title">建筑监测</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <div id="tree_2" class="tree-nav">
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="heading">
+            <h3 class="uppercase">统计台帐</h3>
+        </li>
+        <li class="nav-item">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-layers"></i>
+                <span class="title">建筑用电统计</span>
+                <span class="selected"></span>
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="layout_classic_page_head.html" class="nav-link ">
+                        <span class="title">Classic Page Head</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_light_page_head.html" class="nav-link ">
+                        <span class="title">Light Page Head</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_footer_fixed.html" class="nav-link ">
+                        <span class="title">Fixed Footer</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-feed"></i>
+                <span class="title">电表用电统计</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="layout_sidebar_menu_light.html" class="nav-link ">
+                        <span class="title">Light Sidebar Menu</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_sidebar_menu_hover.html" class="nav-link ">
+                        <span class="title">Hover Sidebar Menu</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_sidebar_search_1.html" class="nav-link ">
+                        <span class="title">Sidebar Search Option 1</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_sidebar_closed.html" class="nav-link ">
+                        <span class="title">Closed Sidebar Layout</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-paper-plane"></i>
+                <span class="title">用电明细查询</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="layout_mega_menu_light.html" class="nav-link ">
+                        <span class="title">Light Mega Menu</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_mega_menu_dark.html" class="nav-link ">
+                        <span class="title">Dark Mega Menu</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="layout_full_width.html" class="nav-link ">
+                        <span class="title">Full Width Layout</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="heading">
+            <h3 class="uppercase">节能报警</h3>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-basket"></i>
+                <span class="title">实时报警一栏</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="ecommerce_index.html" class="nav-link ">
+                        <i class="icon-home"></i>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="ecommerce_orders.html" class="nav-link ">
+                        <i class="icon-basket"></i>
+                        <span class="title">Orders</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="ecommerce_orders_view.html" class="nav-link ">
+                        <i class="icon-tag"></i>
+                        <span class="title">Order View</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="ecommerce_products_edit.html" class="nav-link ">
+                        <i class="icon-graph"></i>
+                        <span class="title">Product Edit</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-docs"></i>
+                <span class="title">历史报警查询</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="app_todo.html" class="nav-link ">
+                        <i class="icon-clock"></i>
+                        <span class="title">Todo 1</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="app_todo_2.html" class="nav-link ">
+                        <i class="icon-check"></i>
+                        <span class="title">Todo 2</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="app_calendar.html" class="nav-link ">
+                        <i class="icon-calendar"></i>
+                        <span class="title">Calendar</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="icon-user"></i>
+                <span class="title">用电模型设置</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="page_user_profile_1.html" class="nav-link ">
+                        <i class="icon-user"></i>
+                        <span class="title">Profile 1</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="page_user_profile_1_account.html" class="nav-link ">
+                        <i class="icon-user-female"></i>
+                        <span class="title">Profile 1 Account</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="page_user_profile_1_help.html" class="nav-link ">
+                        <i class="icon-user-following"></i>
+                        <span class="title">Profile 1 Help</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="page_user_profile_2.html" class="nav-link ">
+                        <i class="icon-users"></i>
+                        <span class="title">Profile 2</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="page_user_lock_1.html" class="nav-link " target="_blank">
+                        <i class="icon-lock"></i>
+                        <span class="title">Lock Screen 1</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="page_user_lock_2.html" class="nav-link " target="_blank">
+                        <i class="icon-lock-open"></i>
+                        <span class="title">Lock Screen 2</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <!-- END SIDEBAR MENU -->
+    <!-- END SIDEBAR MENU -->
+</div>
+<!-- END SIDEBAR -->

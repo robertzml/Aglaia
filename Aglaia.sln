@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aglaia.UI", "Aglaia.UI\Aglaia.UI.csproj", "{89486353-BD11-4790-8237-DF74C03C090A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aglaia.Data", "Aglaia.Data\Aglaia.Data.csproj", "{0D87EAEF-6946-4A2D-9499-4A9B266D1ACE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aglaia.Model", "Aglaia.Model\Aglaia.Model.csproj", "{1C9262C0-ADF5-4D63-B619-5CD375150C68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{89486353-BD11-4790-8237-DF74C03C090A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89486353-BD11-4790-8237-DF74C03C090A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89486353-BD11-4790-8237-DF74C03C090A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D87EAEF-6946-4A2D-9499-4A9B266D1ACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D87EAEF-6946-4A2D-9499-4A9B266D1ACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D87EAEF-6946-4A2D-9499-4A9B266D1ACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D87EAEF-6946-4A2D-9499-4A9B266D1ACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C9262C0-ADF5-4D63-B619-5CD375150C68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C9262C0-ADF5-4D63-B619-5CD375150C68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C9262C0-ADF5-4D63-B619-5CD375150C68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C9262C0-ADF5-4D63-B619-5CD375150C68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

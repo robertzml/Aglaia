@@ -13,6 +13,36 @@ namespace Aglaia.UI.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 导航菜单
+        /// </summary>
+        /// <returns></returns>
+        [ChildActionOnly]
+        public ActionResult Menu()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 楼层页面
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Building(int id)
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 房间页面
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public ActionResult Room(int id)
+        {
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -20,11 +50,5 @@ namespace Aglaia.UI.Controllers
             return View();
         }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
