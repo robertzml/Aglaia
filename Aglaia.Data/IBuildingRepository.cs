@@ -10,5 +10,9 @@ namespace Aglaia.Data
     public interface IBuildingRepository
     {
         IEnumerable<Building> Get();
+
+        List<Building> GetTop();
+
+        List<Building> GetChildren(int parentId);
     }
 }

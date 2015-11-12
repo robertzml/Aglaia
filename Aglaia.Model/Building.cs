@@ -14,21 +14,18 @@ namespace Aglaia.Model
         /// <summary>
         /// ID
         /// </summary>
-        public string id { get; set; }
+        public int id { get; set; }
 
         /// <summary>
         /// 名称
         /// </summary>
         public string text { get; set; }
 
-        /// <summary>
-        /// 父级ID
-        /// </summary>
-        public string parent { get; set; }
+        public bool hasChildren { get; set; }
 
-        /// <summary>
-        /// 类型
-        /// </summary>
-        public string li_attr { get; set; }
+        public int type { get; set; }
+
+        public string spriteCssClass { get; set; }
+
     }
 }

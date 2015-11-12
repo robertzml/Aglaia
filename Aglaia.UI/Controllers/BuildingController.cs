@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using Aglaia.Data;
 using Aglaia.Model;
+using Newtonsoft.Json;
+using System.Text;
+using System.IO;
 
 namespace Aglaia.UI.Controllers
 {
@@ -22,9 +25,16 @@ namespace Aglaia.UI.Controllers
         }
         #endregion //Constructor
 
-        public IEnumerable<Building> Get()
+        #region Action
+        public List<Building> GetChildren()
         {
-            return buildingRepository.Get();
+            return buildingRepository.GetTop();
         }
+
+        public List<Building> GetChildren(int id)
+        {
+            return buildingRepository.GetChildren(id);
+        }
+        #endregion //Action
     }
 }
