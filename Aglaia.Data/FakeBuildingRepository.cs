@@ -9,140 +9,103 @@ namespace Aglaia.Data
 {
     public class FakeBuildingRepository : IBuildingRepository
     {
-        public IEnumerable<Building> Get()
+        #region Field
+        private List<Building> buildings;
+        #endregion //Field
+
+        #region Constructor
+        public FakeBuildingRepository()
         {
-            List<Building> data = new List<Building>();
-
-            //Building building1 = new Building
-            //{
-            //    id = "1",
-            //    text = "江南大学",
-            //    parent = "#",
-            //    li_attr = "type: 0"
-            //};
-            //data.Add(building1);
-
-            //Building building2 = new Building
-            //{
-            //    id = "2",
-            //    text = "行政楼",
-            //    parent = "1",
-            //    li_attr = "type: 1"
-            //};
-            //data.Add(building2);
-
-            //Building building3 = new Building
-            //{
-            //    id = "3",
-            //    text = "教学楼",
-            //    parent = "1",
-            //    li_attr = "type: 1"
-            //};
-            //data.Add(building3);
-
-            //Building building4 = new Building
-            //{
-            //    id = "4",
-            //    text = "A102",
-            //    parent = "2",
-            //    li_attr = "type: 2"
-            //};
-            //data.Add(building4);
-
-            //Building building5 = new Building
-            //{
-            //    id = "5",
-            //    text = "A103",
-            //    parent = "2",
-            //    li_attr = "type: 2"
-            //};
-            //data.Add(building5);
-
-            //Building building6 = new Building
-            //{
-            //    id = "6",
-            //    text = "A104",
-            //    parent = "6",
-            //    li_attr = "type: 2"
-            //};
-            //data.Add(building4);
-            return data;
+            Init();
         }
+        #endregion //Constructor
 
-        public List<Building> GetTop()
+        #region Function
+        private void Init()
         {
-            List<Building> data = new List<Building>();
+            this.buildings = new List<Building>();
+
             Building building = new Building
             {
                 id = 1,
                 text = "江南大学",
                 hasChildren = true,
                 type = 1,
+                parentId = 0,
                 spriteCssClass = "fa fa-folder"
             };
+            buildings.Add(building);
 
-            data.Add(building);
+            Building building2 = new Building
+            {
+                id = 2,
+                text = "行政楼",
+                hasChildren = true,
+                type = 2,
+                parentId = 1,
+                spriteCssClass = "fa fa-folder"
+            };
+            buildings.Add(building2);
+
+            Building building3 = new Building
+            {
+                id = 3,
+                text = "教学楼",
+                hasChildren = false,
+                parentId = 1,
+                type = 2,
+                spriteCssClass = "fa fa-folder"
+            };
+            buildings.Add(building3);
+
+            Building building4 = new Building
+            {
+                id = 5,
+                text = "A102",
+                hasChildren = false,
+                type = 3,
+                parentId = 2,
+                spriteCssClass = "fa fa-file"
+            };
+            buildings.Add(building4);
+
+            Building building5 = new Building
+            {
+                id = 6,
+                text = "A103",
+                hasChildren = false,
+                type = 3,
+                parentId = 2,
+                spriteCssClass = "fa fa-file"
+            };
+            buildings.Add(building5);
+        }
+        #endregion //Function
+
+
+        public IEnumerable<Building> Get()
+        {
+            List<Building> data = new List<Building>();
+
             return data;
+        }
+
+        public Building Get(int id)
+        {
+            var data = this.buildings.SingleOrDefault(r => r.id == id);
+            return data;
+        }
+
+        public List<Building> GetTop()
+        {
+            var data = this.buildings.Where(r => r.parentId == 0);
+            return data.ToList();
         }
 
         public List<Building> GetChildren(int parentId)
         {
-            if (parentId == 1)
-            {
-                List<Building> buildings = new List<Building>();
-
-                Building building2 = new Building
-                {
-                    id = 2,
-                    text = "行政楼",
-                    hasChildren = true,
-                    type = 1,
-                    spriteCssClass = "fa fa-folder"
-                };
-                buildings.Add(building2);
-
-                Building building3 = new Building
-                {
-                    id = 3,
-                    text = "教学楼",
-                    hasChildren = false,
-                    type = 1,
-                    spriteCssClass = "fa fa-folder"
-                };
-                buildings.Add(building3);
-
-                return buildings;
-            }
-            else if (parentId == 2)
-            {
-                List<Building> buildings = new List<Building>();
-
-                Building building2 = new Building
-                {
-                    id = 5,
-                    text = "A102",
-                    hasChildren = false,
-                    type = 2,
-                    spriteCssClass = "fa fa-file"
-                };
-                buildings.Add(building2);
-
-                Building building3 = new Building
-                {
-                    id = 6,
-                    text = "A103",
-                    hasChildren = false,
-                    type = 2,
-                    spriteCssClass = "fa fa-file"
-                };
-                buildings.Add(building3);
-
-                return buildings;
-            }
-            else
-            {
-                return null;
-            }
+            var data = this.buildings.Where(r => r.parentId == parentId);
+            return data.ToList();
         }
     }
 }

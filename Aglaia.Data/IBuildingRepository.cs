@@ -11,6 +11,8 @@ namespace Aglaia.Data
     {
         IEnumerable<Building> Get();
 
+        Building Get(int id);
+
         List<Building> GetTop();
 
         List<Building> GetChildren(int parentId);

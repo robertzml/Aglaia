@@ -30,7 +30,7 @@ namespace Aglaia.UI.Controllers
         /// <returns></returns>
         public ActionResult Building(int id)
         {
-            return View();
+            return View(id);
         }
 
         /// <summary>

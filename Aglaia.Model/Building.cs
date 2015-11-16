@@ -23,6 +23,8 @@ namespace Aglaia.Model
 
         public bool hasChildren { get; set; }
 
+        public int parentId { get; set; }
+
         public int type { get; set; }
 
         public string spriteCssClass { get; set; }

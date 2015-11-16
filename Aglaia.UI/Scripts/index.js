@@ -16,7 +16,7 @@ var index = function() {
 				},
 				schema: {
 					model: {
-						id: "id",
+					    id: "id",
 						hasChildren: "hasChildren"
 					}
 				}
@@ -28,6 +28,11 @@ var index = function() {
 	
 	function onSelect(e) {
 		var dataItem = this.dataItem(e.node);
+		if (dataItem.type == 2) {
+			$('#page-content-body').load('/home/building', { id: dataItem.id });
+		} else if (dataItem.type == 3){
+			$('#page-content-body').load('/home/room', { id: dataItem.id });
+		}
 		console.log("Selected node with type = " + dataItem.type);
 	}
 	
@@ -36,7 +41,6 @@ var index = function() {
         init: function () {
 			initPanelbar();
 			loadBuildingTree();
-			
         }
 	}
 }();

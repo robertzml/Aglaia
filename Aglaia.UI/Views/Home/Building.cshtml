@@ -1,122 +1,126 @@
-﻿@{ 
+﻿@model int
+
+@{ 
     Layout = null;
 }
 
-<!-- BEGIN PAGE BAR -->
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <a href="@Url.Action("Index", "Home")">主页</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <a href="#">建筑监测</a>
-            <i class="fa fa-circle"></i>
-        </li>
-        <li>
-            <span>行政楼</span>
-        </li>
-    </ul>
-    <div class="page-toolbar">
-        <div class="btn-group pull-right">
-            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
-                Actions
-                <i class="fa fa-angle-down"></i>
-            </button>
-            <ul class="dropdown-menu pull-right" role="menu">
-                <li>
-                    <a href="#">
-                        <i class="icon-bell"></i> Action
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-shield"></i> Another action
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-user"></i> Something else here
-                    </a>
-                </li>
-                <li class="divider"> </li>
-                <li>
-                    <a href="#">
-                        <i class="icon-bag"></i> Separated link
-                    </a>
-                </li>
-            </ul>
+<div id="building-view"  ng-app="phonecatApp" ng-controller="PhoneListCtrl">
+    <!-- BEGIN PAGE BAR -->
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <a href="@Url.Action("Index", "Home")">主页</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <a href="#">建筑监测</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li>
+                <span data-bind="text: text"></span>
+            </li>
+        </ul>
+        <div class="page-toolbar">
+            <div class="btn-group pull-right">
+                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <i class="fa fa-angle-down"></i>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li>
+                        <a href="#">
+                            <i class="icon-bell"></i> Action
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-shield"></i> Another action
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-user"></i> Something else here
+                        </a>
+                    </li>
+                    <li class="divider"> </li>
+                    <li>
+                        <a href="#">
+                            <i class="icon-bag"></i> Separated link
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- END PAGE BAR -->
+    <!-- BEGIN PAGE TITLE-->
+    <h3 class="page-title">
+        建筑监测
+        <small>建筑用电列表</small>
+    </h3>
+    <!-- END PAGE TITLE-->
+    <!-- END PAGE HEADER-->
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption font-green-sharp">
+                <i class="fa fa-building"></i>
+                <span class="caption-subject bold">{{name}}</span>
+                <span class="caption-helper"></span>
+            </div>
+            <div class="actions">
+                <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
+                    <i class="fa fa-pencil"></i> Edit
+                </a>
+                <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
+                    <i class="fa fa-plus"></i> Add
+                </a>
+                <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+            </div>
+        </div>
+        <div class="portlet-body">
+            <div class="tiles">
+                <div class="tile bg-green">
+                    <div class="tile-body">
+                        <h4 data-bind="text: name"></h4>
+                        <p> 当天用电: 15.5度 </p>
+                        <p> 当前功率: 0.5千瓦 </p>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name"> 教务处 </div>
+                        <div class="number"> 在线 </div>
+                    </div>
+                </div>
+                <div class="tile bg-green">
+                    <div class="tile-body">
+                        <h4>A103</h4>
+                        <p> 当天用电: 3.2度 </p>
+                        <p> 当前功率: 0.2千瓦 </p>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name"> 教务处 </div>
+                        <div class="number"> 在线 </div>
+                    </div>
+                </div>
+                <div class="tile bg-grey-gallery">
+                    <div class="tile-body">
+                        <h4>A104</h4>
+                        <p> 当天用电: 5.2度 </p>
+                        <p> 当前功率: 0.6千瓦 </p>
+                    </div>
+                    <div class="tile-object">
+                        <div class="name"> 财务处 </div>
+                        <div class="number"> 离线 </div>
+                    </div>
+                </div>
+            </div>
+            <button data-bind="click: displayGreeting">Display Greeting</button>
         </div>
     </div>
 </div>
-<!-- END PAGE BAR -->
-<!-- BEGIN PAGE TITLE-->
-<h3 class="page-title">
-    建筑监测
-    <small>建筑用电列表</small>
-</h3>
-<!-- END PAGE TITLE-->
-<!-- END PAGE HEADER-->
-<div class="portlet light bordered">
-    <div class="portlet-title">
-        <div class="caption font-green-sharp">
-            <i class="fa fa-building"></i>
-            <span class="caption-subject bold">行政楼</span>
-            <span class="caption-helper"></span>
-        </div>
-        <div class="actions">
-            <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
-                <i class="fa fa-pencil"></i> Edit
-            </a>
-            <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
-                <i class="fa fa-plus"></i> Add
-            </a>
-            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
-        </div>
-    </div>
-    <div class="portlet-body">
-        <div class="tiles">
-            <div class="tile bg-green">
-                <div class="tile-body">
-                    <h4>A102</h4>
-                    <p> 当天用电: 15.5度 </p>
-                    <p> 当前功率: 0.5千瓦 </p>
-                </div>
-                <div class="tile-object">
-                    <div class="name"> 教务处 </div>
-                    <div class="number"> 在线 </div>
-                </div>
-            </div>
-            <div class="tile bg-green">
-                <div class="tile-body">
-                    <h4>A103</h4>
-                    <p> 当天用电: 3.2度 </p>
-                    <p> 当前功率: 0.2千瓦 </p>
-                </div>
-                <div class="tile-object">
-                    <div class="name"> 教务处 </div>
-                    <div class="number"> 在线 </div>
-                </div>
-            </div>
-            <div class="tile bg-grey-gallery">
-                <div class="tile-body">
-                    <h4>A104</h4>
-                    <p> 当天用电: 5.2度 </p>
-                    <p> 当前功率: 0.6千瓦 </p>
-                </div>
-                <div class="tile-object">
-                    <div class="name"> 财务处 </div>
-                    <div class="number"> 离线 </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 <script type="text/javascript">
     $(function () {
-      
+        building.init('@Model');
     });
 </script>

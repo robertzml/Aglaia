@@ -26,6 +26,11 @@ namespace Aglaia.UI.Controllers
         #endregion //Constructor
 
         #region Action
+        public Building Get(int id)
+        {
+            return buildingRepository.Get(id);
+        }
+
         public List<Building> GetChildren()
         {
             return buildingRepository.GetTop();
