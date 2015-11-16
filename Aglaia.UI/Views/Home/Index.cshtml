@@ -74,6 +74,20 @@
         <h2>Hello World!</h2>
 
         <input id="datepicker" />
+      
+        <div class="row" id="example">
+            <div class="col-md-12">
+                <div data-bind="source: data" data-template="tmp"></div>
+                <script id="tmp" type="text/x-kendo-template">
+                    <div>
+                        <input data-bind="value: quantity" />
+                        <span data-bind="text: price"></span>
+                        <span data-bind="text: total"></span>
+                    </div>
+                </script>
+
+            </div>
+        </div>
     </div>
 </div>
 
@@ -89,6 +103,28 @@
             
             index.init();
             $("#treeview").kendoTreeView();
+
+            var Product = kendo.data.Model.define({
+                fields: {
+                    "quantity": {
+                        type: "number"
+                    },
+                    "price": {
+                        type: "number"
+                    }
+                },
+                total: function () { //define the calculated field
+                    return this.get("quantity") * this.get("price");
+                }
+            });
+
+            var viewModel = kendo.observable({
+                data: [
+                    new Product({ "quantity": 1, "price": 2 })
+                ]
+            });
+
+            kendo.bind($("#example"), viewModel);
         });
     </script>
 }

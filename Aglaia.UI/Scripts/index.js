@@ -25,7 +25,12 @@ var index = function() {
 			select: onSelect
 		});
 	};
-	
+
+	var initAngular = function () {
+
+	    
+	};
+
 	function onSelect(e) {
 		var dataItem = this.dataItem(e.node);
 		if (dataItem.type == 2) {
@@ -36,11 +41,14 @@ var index = function() {
 		console.log("Selected node with type = " + dataItem.type);
 	}
 	
+	
+
 	return {
         //main function to initiate the module
         init: function () {
 			initPanelbar();
 			loadBuildingTree();
+			initAngular();
         }
 	}
 }();

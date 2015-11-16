@@ -56,7 +56,7 @@ namespace Aglaia.Data
                 buildingId = 2,
                 online = false
             };
-            this.ammeters.Add(ammeter2);
+            this.ammeters.Add(ammeter3);
         }
         #endregion //Function
 
