@@ -60,7 +60,7 @@ namespace Aglaia.Data
 
             Building building4 = new Building
             {
-                id = 5,
+                id = 100001,
                 text = "A102",
                 hasChildren = false,
                 type = 3,
@@ -71,7 +71,7 @@ namespace Aglaia.Data
 
             Building building5 = new Building
             {
-                id = 6,
+                id = 100002,
                 text = "A103",
                 hasChildren = false,
                 type = 3,

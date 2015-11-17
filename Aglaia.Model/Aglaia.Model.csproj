@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Ammeter.cs" />
     <Compile Include="Building.cs" />
+    <Compile Include="Energy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

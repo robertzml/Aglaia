@@ -13,12 +13,15 @@ namespace Aglaia.UI.Controllers
     {
         #region Field
         private IAmmeterRepository ammeterRepository;
+
+        private IEnergyRepository energyRepository;
         #endregion //Field
 
         #region Constructor
         public AmmeterController()
         {
-            ammeterRepository = new FakeAmmeterRepository();
+            this.ammeterRepository = new FakeAmmeterRepository();
+            this.energyRepository = new FakeEnergyRepository();
         }
         #endregion //Constructor
 
@@ -26,6 +29,16 @@ namespace Aglaia.UI.Controllers
         public List<Ammeter> GetByBuilding(int buildingId)
         {
             return this.ammeterRepository.GetByBuilding(buildingId).ToList();
+        }
+
+        public Ammeter Get(int id)
+        {
+            return this.ammeterRepository.Get(id);
+        }
+
+        public List<Energy> GetEnergy(DateTime date)
+        {
+            return this.energyRepository.GetHourRandom(date).ToList();
         }
         #endregion //Action
     }

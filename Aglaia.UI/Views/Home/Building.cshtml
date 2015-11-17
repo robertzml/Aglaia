@@ -17,7 +17,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span data-bind="text: text"></span>
+                <span data-bind="text: building.text"></span>
             </li>
         </ul>
         <div class="page-toolbar">
@@ -68,75 +68,43 @@
                 <span class="caption-helper"></span>
             </div>
             <div class="actions">
-                <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
-                    <i class="fa fa-pencil"></i> Edit
-                </a>
-                <a href="javascript:;" class="btn btn-circle btn-default btn-sm">
-                    <i class="fa fa-plus"></i> Add
-                </a>
                 <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
             </div>
         </div>
         <div class="portlet-body">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="tiles">
+                    <div class="tiles" data-bind="source: rooms" data-template="tmp"></div>
+                    <script id="tmp" type="text/x-kendo-template">
+                        #if (online) {#
                         <div class="tile bg-green">
                             <div class="tile-body">
-                                <h4 data-bind="text: name"></h4>
+                                <h4>#= roomName #</h4>
                                 <p> 当天用电: 15.5度 </p>
                                 <p> 当前功率: 0.5千瓦 </p>
                             </div>
                             <div class="tile-object">
-                                <div class="name"> 教务处 </div>
+                                <div class="name">#= departmentName #</div>
                                 <div class="number"> 在线 </div>
                             </div>
                         </div>
-                        <div class="tile bg-green">
-                            <div class="tile-body">
-                                <h4>A103</h4>
-                                <p> 当天用电: 3.2度 </p>
-                                <p> 当前功率: 0.2千瓦 </p>
-                            </div>
-                            <div class="tile-object">
-                                <div class="name"> 教务处 </div>
-                                <div class="number"> 在线 </div>
-                            </div>
-                        </div>
+                        #} else {#
                         <div class="tile bg-grey-gallery">
                             <div class="tile-body">
-                                <h4>A104</h4>
-                                <p> 当天用电: 5.2度 </p>
-                                <p> 当前功率: 0.6千瓦 </p>
+                                <h4>#= roomName #</h4>
+                                <p> 当天用电: 15.5度 </p>
+                                <p> 当前功率: 0.5千瓦 </p>
                             </div>
                             <div class="tile-object">
-                                <div class="name"> 财务处 </div>
+                                <div class="name">#= departmentName #</div>
                                 <div class="number"> 离线 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="tiles" data-bind="source: rooms" data-template="tmp"></div>
-                    <script id="tmp" type="text/x-kendo-template">
-                        <div class="tile bg-green">
-                            <div class="tile-body">
-                                <h4 data-bind="text: roomName"></h4>
-                                <p> 当天用电: 15.5度 </p>
-                                <p> 当前功率: 0.5千瓦 </p>
-                            </div>
-                            <div class="tile-object">
-                                <div class="name"> 教务处 </div>
-                                <div class="number"> 在线 </div>
-                            </div>
-                        </div>
+                        #}#
                     </script>
                     
                 </div>
             </div>
-            <button data-bind="click: displayGreeting">Display Greeting</button>
         </div>
     </div>
 </div>

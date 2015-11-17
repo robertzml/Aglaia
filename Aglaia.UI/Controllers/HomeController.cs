@@ -40,7 +40,7 @@ namespace Aglaia.UI.Controllers
         /// <returns></returns>
         public ActionResult Room(int id)
         {
-            return View();
+            return View(id);
         }
 
         public ActionResult About()

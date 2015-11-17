@@ -7,10 +7,8 @@ using Aglaia.Model;
 
 namespace Aglaia.Data
 {
-    public interface IAmmeterRepository
+    public interface IEnergyRepository
     {
-        IEnumerable<Ammeter> GetByBuilding(int buildingId);
-
-        Ammeter Get(long id);
+        IEnumerable<Energy> GetHourRandom(DateTime date);
     }
 }

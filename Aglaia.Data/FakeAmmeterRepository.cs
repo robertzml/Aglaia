@@ -65,6 +65,11 @@ namespace Aglaia.Data
         {
             return this.ammeters.Where(r => r.buildingId == buildingId);
         }
+
+        public Ammeter Get(long id)
+        {
+            return this.ammeters.SingleOrDefault(r => r.id == id);
+        }
         #endregion //Method
     }
 }
