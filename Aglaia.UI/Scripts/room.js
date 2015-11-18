@@ -41,7 +41,8 @@ var room = function() {
             },
             series: [{
                 field: "value",
-                name: "����"
+                name: "用能",
+                color: "#2e99fe"
             }],
             categoryAxis: {
                 field: "time",
@@ -52,7 +53,11 @@ var room = function() {
                         hours: "HH mm"
                     },
                     step: 4
-                }
+                },
+                majorGridLines: {
+                    step: 24,
+                    width: 3
+                },
             },
             dataSource: {
                 transport: {
@@ -62,8 +67,17 @@ var room = function() {
                         dataType: "json"
                     }
                 }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}",
+                template: "#= kendo.toString(category, 'yyyy/MM/dd HH:mm:ss') # <br/>  实时能耗: #= value # 千瓦时"
             }
         });
+    }
+
+    var initDatePicker = function () {
+        $("#chart-datepicker").kendoDatePicker();
     }
 
 	return {
@@ -71,6 +85,7 @@ var room = function() {
 	        this.id = parseInt(id);
 	        load(id);
 	        initChart();
+	        initDatePicker();
 	    }
 	}
 }();
