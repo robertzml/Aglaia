@@ -1,0 +1,10 @@
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: '微软雅黑';
+}
+
+.fa.k-sprite, .fa.k-sprite::before {
+    font-size: 12px;
+    line-height: 12px;
+    padding-top: 2px;
+}
