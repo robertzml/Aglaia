@@ -43,9 +43,11 @@
     <Compile Include="FakeAmmeterRepository.cs" />
     <Compile Include="FakeBuildingRepository.cs" />
     <Compile Include="FakeEnergyRepository.cs" />
+    <Compile Include="FakeTreeRepository.cs" />
     <Compile Include="IAmmeterRepository.cs" />
     <Compile Include="IBuildingRepository.cs" />
     <Compile Include="IEnergyRepository.cs" />
+    <Compile Include="ITreeRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -31,6 +31,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Aglaia.CEMS", "Aglaia.CEMS\
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aglaia.API", "Aglaia.API\Aglaia.API.csproj", "{0D687F41-C0FF-4EE3-9675-846396239173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{FC29246D-0782-4445-8051-EC9C8F483935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC29246D-0782-4445-8051-EC9C8F483935}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC29246D-0782-4445-8051-EC9C8F483935}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0D687F41-C0FF-4EE3-9675-846396239173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D687F41-C0FF-4EE3-9675-846396239173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D687F41-C0FF-4EE3-9675-846396239173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D687F41-C0FF-4EE3-9675-846396239173}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,9 @@
     <link href="/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
     <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="/assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="/assets/global/css/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
     <link href="/assets/global/css/plugins-md.min.css" rel="stylesheet" type="text/css" />
@@ -40,7 +43,7 @@
         <div class="page-header-inner ">
             <!-- BEGIN LOGO -->
             <div class="page-logo">
-                <a href="index.html">
+                <a href="/">
                     <img src="../assets/layouts/layout/img/logo.png" alt="logo" class="logo-default" />
                 </a>
                 <div class="menu-toggler sidebar-toggler"> </div>
@@ -187,19 +190,6 @@
                                     <li>
                                         <a href="javascript:;">
                                             <span class="task">
-                                                <span class="desc">Mobile development</span>
-                                                <span class="percent">85%</span>
-                                            </span>
-                                            <span class="progress">
-                                                <span style="width: 85%;" class="progress-bar progress-bar-success" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
-                                                    <span class="sr-only">85% Complete</span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;">
-                                            <span class="task">
                                                 <span class="desc">New UI release</span>
                                                 <span class="percent">38%</span>
                                             </span>
@@ -285,44 +275,12 @@
                     </li>
                     <li>
                         <span>电表监测</span>
-                        <div style="padding: 10px;">
-                            <ul id="treeview">
-                                <li data-expanded="true">
-                                    My Web Site
-                                    <ul>
-                                        <li>
-                                            <span class="k-sprite folder"></span>images
-                                            <ul>
-                                                <li><span class="k-sprite image"></span>logo.png</li>
-                                                <li><span class="k-sprite image"></span>body-back.png</li>
-                                                <li><span class="k-sprite image"></span>my-photo.jpg</li>
-                                            </ul>
-                                        </li>
-                                        <li data-expanded="true">
-                                            <span class="k-sprite folder"></span>resources
-                                            <ul>
-                                                <li data-expanded="true">
-                                                    <span class="k-sprite folder"></span>pdf
-                                                    <ul>
-                                                        <li><span class="k-sprite pdf"></span>brochure.pdf</li>
-                                                        <li><span class="k-sprite pdf"></span>prices.pdf</li>
-                                                    </ul>
-                                                </li>
-                                                <li><span class="k-sprite folder"></span>zip</li>
-                                            </ul>
-                                        </li>
-                                        <li><span class="k-sprite html"></span>about.html</li>
-                                        <li><span class="k-sprite html"></span>contacts.html</li>
-                                        <li><span class="k-sprite html"></span>index.html</li>
-                                        <li><span class="k-sprite html"></span>portfolio.html</li>
-                                    </ul>
-                                </li>
-                            </ul>
+                        <div id="tree_1">
                         </div>
                     </li>
                     <li>
                         建筑监测
-                        <div id="building-tree-view">
+                        <div id="tree_2">
                         </div>
                     </li>
                     <li>
@@ -362,7 +320,7 @@
         <!-- BEGIN CONTENT -->
         <div class="page-content-wrapper">
             <!-- BEGIN CONTENT BODY -->
-            <div class="page-content">
+            <div class="page-content" id="page-content-body">
                 <!-- BEGIN PAGE HEADER-->
                 <!-- BEGIN PAGE BAR -->
                 <div class="page-bar">
@@ -446,6 +404,9 @@
     <script src="/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
     <script src="/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
     <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="/assets/global/plugins/jstree/dist/jstree.min.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
     <script src="/assets/global/scripts/app.min.js" type="text/javascript"></script>
     <!-- END THEME GLOBAL SCRIPTS -->
@@ -459,8 +420,10 @@
         kendo.culture("zh-CN");
     </script>
     <!--  END Kendo UI SCRIPTS  -->
+    <script src="/assets/global/plugins/handlebars-v4.0.5.js" type="text/javascript"></script>
     <script src="/scripts/aglaia.js" type="text/javascript"></script>
     <script src="/scripts/index.js" type="text/javascript"></script>
+    <script src="/scripts/ammeter.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             index.init();
