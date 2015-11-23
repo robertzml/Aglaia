@@ -1,0 +1,70 @@
+﻿<!-- BEGIN PAGE HEADER-->
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <a href="#">主页</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <a href="#">电表监测</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span data-bind="text: building.text"></span>
+        </li>
+    </ul>
+    <div class="page-toolbar">
+        <div class="btn-group pull-right">
+            <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
+                Actions
+                <i class="fa fa-angle-down"></i>
+            </button>
+            <ul class="dropdown-menu pull-right" role="menu">
+                <li>
+                    <a href="#">
+                        <i class="icon-bell"></i> Action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-shield"></i> Another action
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-user"></i> Something else here
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="#">
+                        <i class="icon-bag"></i> Separated link
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- END PAGE BAR -->
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title">
+    建筑监测
+    <small>建筑用电列表</small>
+</h3>
+<!-- END PAGE TITLE-->
+<!-- END PAGE HEADER-->
+<!-- BEGIN PAGE CONTENT-->
+<div class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption font-green-sharp">
+            <i class="fa fa-building"></i>
+            <span class="caption-subject bold" data-bind="text: building.text"></span>
+            <span class="caption-helper"></span>
+        </div>
+        <div class="actions">
+            <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;"> </a>
+        </div>
+    </div>
+</div>
+<!-- END PAGE CONTENT-->

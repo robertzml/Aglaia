@@ -58,7 +58,8 @@ var index = function() {
 	        var type = $('#' + data.selected).attr('data-type');
 
 	        if (type == 2) {
-	            
+	            localStorage["ammeterParam"] = id;
+	            $('#page-content-body').load('/ammeterGroup.html');
 	        } else if (type == 3) {
 	            localStorage["ammeterParam"] = id;
 	            $('#page-content-body').load('/ammeter.html');

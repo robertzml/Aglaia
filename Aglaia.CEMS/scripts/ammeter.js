@@ -3,15 +3,20 @@ var ammeter = function () {
 
     var apiserver = "http://localhost:61070/";
 
+    var renderHtml = function ($template, $html, data) {
+        var source = $template.html();
+        var template = Handlebars.compile(source);
+
+        $html.html(template(data));
+    };
+
     var loadAmmeter = function (id) {
         $.getJSON(apiserver + "api/ammeter/get/", { id: id }, function (response) {
 
-            var source = $("#header-template").html();
-            var template = Handlebars.compile(source);
-
-            $('#page-header').html(template(response));
+            renderHtml($("#header-template"), $('#page-header'), response);
+            renderHtml($("#base-template"), $('#base-template-html'), response);
         });
-    }
+    };
 
     var initChart = function () {
         $("#energy-chart").kendoChart({
@@ -56,11 +61,11 @@ var ammeter = function () {
                 template: "#= kendo.toString(category, 'yyyy/MM/dd HH:mm:ss') # <br/>  实时能耗: #= value # 千瓦时"
             }
         });
-    }
+    };
 
     var initDatePicker = function () {
         $("#chart-datepicker").kendoDatePicker();
-    }
+    };
 
     return {
         init: function () {

@@ -9,7 +9,7 @@
                 <i class="fa fa-circle"></i>
             </li>
             <li>
-                <span>Page Layouts</span>
+                <span>电表监测</span>
                 <i class="fa fa-circle"></i>
             </li>
             <li>
@@ -51,35 +51,37 @@
     <!-- END PAGE BAR -->
     <!-- BEGIN PAGE TITLE-->
     <h3 class="page-title">
-        Blank Page Layout
-        <small>blank page layout</small>
+        {{name}}
+        <small>{{number}}</small>
     </h3>
     <!-- END PAGE TITLE-->
     <!-- END PAGE HEADER-->
 </script>
-    <!-- BEGIN PAGE CONTENT-->
-    <div class="tabbable-custom nav-justified">
-        <ul class="nav nav-tabs nav-justified">
-            <li class="active">
-                <a href="#tab_1_1_1" data-toggle="tab"> 基本信息 </a>
-            </li>
-            <li>
-                <a href="#tab_1_1_2" data-toggle="tab"> 用电日历 </a>
-            </li>
-            <li>
-                <a href="#tab_1_1_3" data-toggle="tab"> 数据维护 </a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tab_1_1_1">
+<!-- BEGIN PAGE CONTENT-->
+<div class="tabbable-custom nav-justified">
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active">
+            <a href="#tab_base" data-toggle="tab"> 基本信息 </a>
+        </li>
+        <li>
+            <a href="#tab_1_1_2" data-toggle="tab"> 用电日历 </a>
+        </li>
+        <li>
+            <a href="#tab_1_1_3" data-toggle="tab"> 数据维护 </a>
+        </li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_base">
+            <div id="base-template-html"></div>
+            <script id="base-template" type="text/x-handlebars-template">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="portlet light">
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="icon-speech"></i>
-                                    <span class="caption-subject bold uppercase"> A102</span>
-                                    <span class="caption-helper" data-bind="text: room.departmentName"></span>
+                                    <span class="caption-subject bold uppercase"> {{roomName}}</span>
+                                    <span class="caption-helper">{{name}}</span>
                                 </div>
                                 <div class="actions">
                                     <a href="javascript:;" class="btn btn-circle btn-default">
@@ -99,13 +101,13 @@
                                                     电表编号
                                                 </td>
                                                 <td>
-                                                    A100044
+                                                    {{number}}
                                                 </td>
                                                 <td>
                                                     隶属机构
                                                 </td>
                                                 <td>
-                                                    教务处
+                                                    {{departmentName}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -113,13 +115,13 @@
                                                     当天用电
                                                 </td>
                                                 <td>
-                                                    25.3 千瓦时
+                                                    {{dailyUsage}} 千瓦时
                                                 </td>
                                                 <td>
                                                     计量属性
                                                 </td>
                                                 <td>
-                                                    该表不是总表；该表纳入计量。
+                                                    {{property}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -127,13 +129,13 @@
                                                     当月用电
                                                 </td>
                                                 <td>
-                                                    56.38 千瓦时
+                                                    {{monthUsage}} 千瓦时
                                                 </td>
                                                 <td>
                                                     用电分项
                                                 </td>
                                                 <td>
-                                                    照明
+                                                    {{subitem}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -141,13 +143,13 @@
                                                     电表示数
                                                 </td>
                                                 <td>
-                                                    12345.38 千瓦时
+                                                    {{ammeterDisplay}} 千瓦时
                                                 </td>
                                                 <td>
                                                     用电性质
                                                 </td>
                                                 <td>
-                                                    科研
+                                                    {{nature}}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -155,13 +157,13 @@
                                                     累计示数
                                                 </td>
                                                 <td>
-                                                    65478.38 千瓦时
+                                                    {{totalDisplay}} 千瓦时
                                                 </td>
                                                 <td>
                                                     电表倍率
                                                 </td>
                                                 <td>
-                                                    1倍
+                                                    {{multiply}}倍
                                                 </td>
                                             </tr>
                                             <tr>
@@ -169,13 +171,13 @@
                                                     通讯时间
                                                 </td>
                                                 <td>
-                                                    2015-11-10 15:23:40
+                                                    {{communicateTime}}
                                                 </td>
                                                 <td>
                                                     电费单价
                                                 </td>
                                                 <td>
-                                                    0.50元
+                                                    {{unitPrice}}元
                                                 </td>
                                             </tr>
                                             <tr>
@@ -183,13 +185,13 @@
                                                     节能模型
                                                 </td>
                                                 <td>
-                                                    待机功耗监测
+                                                    {{saveModel}}
                                                 </td>
                                                 <td>
                                                     安装地址
                                                 </td>
                                                 <td>
-                                                    A102
+                                                    {{address}}
                                                 </td>
                                             </tr>
                                         </table>
@@ -199,57 +201,58 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="portlet light">
-                            <div class="portlet-title">
-                                <div class="caption">
-                                    <i class="icon-speech"></i>
-                                    <span class="caption-subject bold uppercase"> 72小时用电趋势图</span>
-                                    <span class="caption-helper">2015-11-10 至 2015-11-12</span>
-                                </div>
-                                <div class="actions">
-                                    <input id="chart-datepicker" value="2015/11/15" />
-                                </div>
+            </script>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-speech"></i>
+                                <span class="caption-subject bold uppercase"> 72小时用电趋势图</span>
+                                <span class="caption-helper">2015-11-10 至 2015-11-12</span>
                             </div>
-                            <div class="portlet-body">
-                                <div id="energy-chart"></div>
-                                <p class="text-center">
-                                    <span style="margin-right: 10px;">15日用电：30.78千瓦时</span>
-                                    <span style="margin-right: 10px;">16日用电：50.78千瓦时</span>
-                                    <span style="margin-right: 10px;">17日用电：35.78千瓦时</span>
-                                </p>
+                            <div class="actions">
+                                <input id="chart-datepicker" value="2015/11/15" />
                             </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="energy-chart"></div>
+                            <p class="text-center">
+                                <span style="margin-right: 10px;">15日用电：30.78千瓦时</span>
+                                <span style="margin-right: 10px;">16日用电：50.78千瓦时</span>
+                                <span style="margin-right: 10px;">17日用电：35.78千瓦时</span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="tab-pane" id="tab_1_1_2">
-                <p> Howdy, I'm in Section 2. </p>
-                <p>
-                    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
-                    consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
-                </p>
-                <p>
-                    <a class="btn green" href="ui_tabs_accordions_navs.html#tab_1_1_2" target="_blank"> Activate this tab via URL </a>
-                </p>
-            </div>
-            <div class="tab-pane" id="tab_1_1_3">
-                <p> Howdy, I'm in Section 3. </p>
-                <p>
-                    Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-                    iriure dolor in hendrerit in vulputate velit esse molestie consequat
-                </p>
-                <p>
-                    <a class="btn yellow" href="ui_tabs_accordions_navs.html#tab_1_1_3" target="_blank"> Activate this tab via URL </a>
-                </p>
-            </div>
+        </div>
+        <div class="tab-pane" id="tab_1_1_2">
+            <p> Howdy, I'm in Section 2. </p>
+            <p>
+                Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
+                consequat. Ut wisi enim ad minim veniam, quis nostrud exerci tation.
+            </p>
+            <p>
+                <a class="btn green" href="ui_tabs_accordions_navs.html#tab_1_1_2" target="_blank"> Activate this tab via URL </a>
+            </p>
+        </div>
+        <div class="tab-pane" id="tab_1_1_3">
+            <p> Howdy, I'm in Section 3. </p>
+            <p>
+                Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
+                iriure dolor in hendrerit in vulputate velit esse molestie consequat
+            </p>
+            <p>
+                <a class="btn yellow" href="ui_tabs_accordions_navs.html#tab_1_1_3" target="_blank"> Activate this tab via URL </a>
+            </p>
         </div>
     </div>
-    <!-- END PAGE CONTENT-->
+</div>
+<!-- END PAGE CONTENT-->
 
-    <script type="text/javascript">
-        $(function () {
-            ammeter.init();
-        });
-    </script>
+<script type="text/javascript">
+    $(function () {
+        ammeter.init();
+    });
+</script>
