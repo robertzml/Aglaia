@@ -18,6 +18,16 @@ var ammeter = function () {
         });
     };
 
+    var loadDaysEnergy = function () {
+        var start = $('#datefrom').val();
+        var end = $('#dateto').val();
+        $.getJSON(apiserver + "api/energy/getdays/", { start: start, end: end }, function (response) {
+
+           
+           // renderHtml($("#base-template"), $('#base-template-html'), response);
+        });
+    };
+
     var initChart = function () {
         $("#energy-chart").kendoChart({
             seriesDefaults: {
@@ -49,7 +59,7 @@ var ammeter = function () {
             dataSource: {
                 transport: {
                     read: {
-                        url: apiserver + "api/ammeter/GetEnergy",
+                        url: apiserver + "api/energy/get",
                         data: { date: '2015-11-12' },
                         dataType: "json"
                     }
@@ -65,6 +75,7 @@ var ammeter = function () {
 
     var initDatePicker = function () {
         $("#chart-datepicker").kendoDatePicker();
+        aglaia.initMonthPicker($('#calendar-range-picker'));
     };
 
     return {
@@ -73,6 +84,7 @@ var ammeter = function () {
             loadAmmeter(id);
             initChart();
             initDatePicker();
+            loadDaysEnergy();            
         }
     }
 }();

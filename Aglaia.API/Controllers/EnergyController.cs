@@ -11,28 +11,28 @@ using Aglaia.Model;
 namespace Aglaia.API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class AmmeterController : ApiController
+    public class EnergyController : ApiController
     {
         #region Field
-        private IAmmeterRepository ammeterRepository;
+        private IEnergyRepository energyRepository;
         #endregion //Field
 
         #region Constructor
-        public AmmeterController()
+        public EnergyController()
         {
-            this.ammeterRepository = new FakeAmmeterRepository();
+            this.energyRepository = new FakeEnergyRepository();
         }
         #endregion //Constructor
 
         #region Action
-        public List<Ammeter> GetByBuilding(int buildingId)
+        public List<Energy> Get(DateTime date)
         {
-            return this.ammeterRepository.GetByBuilding(buildingId).ToList();
+            return this.energyRepository.GetHourRandom(date).ToList();
         }
 
-        public Ammeter Get(int id)
+        public List<Energy> GetDays(DateTime start, DateTime end)
         {
-            return this.ammeterRepository.Get(id);
+            return this.energyRepository.GetDayRandom(start, end).ToList();
         }
         #endregion //Action
     }

@@ -57,10 +57,10 @@ var index = function() {
 	        var id = $('#' + data.selected).attr('data-id');
 	        var type = $('#' + data.selected).attr('data-type');
 
-	        if (type == 2) {
-	            localStorage["ammeterParam"] = id;
-	            $('#page-content-body').load('/ammeterGroup.html');
-	        } else if (type == 3) {
+	        if (type == 1) {
+	            //localStorage["ammeterParam"] = id;
+	            //$('#page-content-body').load('/ammeterGroup.html');
+	        } else if (type == 2 || type == 3) {
 	            localStorage["ammeterParam"] = id;
 	            $('#page-content-body').load('/ammeter.html');
 	        }

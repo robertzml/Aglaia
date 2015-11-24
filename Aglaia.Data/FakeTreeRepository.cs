@@ -43,7 +43,7 @@ namespace Aglaia.Data
                 hasChildren = true,
                 type = 2,
                 parentId = 1,
-                ammeterId = 0
+                ammeterId = 200001
             };
             tree1.Add(node2);
 
@@ -54,7 +54,7 @@ namespace Aglaia.Data
                 hasChildren = false,
                 parentId = 1,
                 type = 2,
-                ammeterId = 0
+                ammeterId = 200002
             };
             tree1.Add(node3);
 

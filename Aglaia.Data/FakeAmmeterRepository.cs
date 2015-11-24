@@ -72,6 +72,54 @@ namespace Aglaia.Data
                 address = "A103"
             };
             this.ammeters.Add(ammeter2);
+
+            Ammeter ammeter3 = new Ammeter
+            {
+                id = 200001,
+                number = "B1000601",
+                name = "一级表1",
+                roomName = "配电间",
+                departmentName = "公共用电",
+                buildingId = 2,
+                online = true,
+                dailyUsage = 48.2,
+                monthUsage = 603.4,
+                property = "该表是总表；该表不纳入计量。",
+                subitem = "照明",
+                nature = "办公",
+                ammeterDisplay = 13945.2,
+                totalDisplay = 26882.8,
+                multiply = 1,
+                unitPrice = 0.6,
+                communicateTime = DateTime.Now,
+                saveModel = "待机功耗监测",
+                address = "配电间"
+            };
+            this.ammeters.Add(ammeter3);
+
+            Ammeter ammeter4 = new Ammeter
+            {
+                id = 200002,
+                number = "B1000602",
+                name = "一级表2",
+                roomName = "配电间",
+                departmentName = "公共用电",
+                buildingId = 2,
+                online = true,
+                dailyUsage = 18.0,
+                monthUsage = 93.5,
+                property = "该表是总表；该表不纳入计量。",
+                subitem = "照明",
+                nature = "办公",
+                ammeterDisplay = 8744.1,
+                totalDisplay = 13942.5,
+                multiply = 1,
+                unitPrice = 0.6,
+                communicateTime = DateTime.Now,
+                saveModel = "待机功耗监测",
+                address = "配电间"
+            };
+            this.ammeters.Add(ammeter4);
         }
         #endregion //Function
 

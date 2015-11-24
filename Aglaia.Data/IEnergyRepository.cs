@@ -10,5 +10,7 @@ namespace Aglaia.Data
     public interface IEnergyRepository
     {
         IEnumerable<Energy> GetHourRandom(DateTime date);
+
+        IEnumerable<Energy> GetDayRandom(DateTime start, DateTime end);
     }
 }
