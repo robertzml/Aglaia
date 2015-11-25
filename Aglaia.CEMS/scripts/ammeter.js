@@ -21,10 +21,12 @@ var ammeter = function () {
     var loadDaysEnergy = function () {
         var start = $('#datefrom').val();
         var end = $('#dateto').val();
-        $.getJSON(apiserver + "api/energy/getdays/", { start: start, end: end }, function (response) {
+        
+        $.getJSON(apiserver + "api/energy/GetCalendarEnergy/", { start: start, end: end }, function (response) {
 
-           
-           // renderHtml($("#base-template"), $('#base-template-html'), response);
+            renderHtml($("#calendar-template"), $('#calendar-template-html'), response);
+
+            aglaia.initCalendarTable($('#calendar-table'));
         });
     };
 

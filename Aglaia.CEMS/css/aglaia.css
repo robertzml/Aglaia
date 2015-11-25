@@ -8,3 +8,15 @@ body, h1, h2, h3, h4, h5, h6 {
     line-height: 12px;
     padding-top: 2px;
 }
+
+#calendar-table .calendar-date {
+    font-size: 12px;
+    font-weight: 400;
+    color: #000;
+}
+
+#calendar-table .calendar-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: #339900;
+}

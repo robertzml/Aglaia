@@ -247,24 +247,57 @@
                             </div>
                         </div>
                         <div class="portlet-body">
-                           <table class="table table-bordered table-striped">
-                               <thead>
-                                   <tr>
-                                       <th>月份</th>
-                                       <th>周日</th>
-                                       <th>周一</th>
-                                       <th>周二</th>
-                                       <th>周三</th>
-                                       <th>周四</th>
-                                       <th>周五</th>
-                                       <th>周六</th>
-                                       <th>月累计</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-
-                               </tbody>
-                           </table>
+                            <div id="calendar-template-html"></div>
+                            <script id="calendar-template" type="text/x-handlebars-template">
+                                <table class="table table-bordered table-striped" id="calendar-table">
+                                    <thead>
+                                        <tr>
+                                            <th>月份</th>
+                                            <th>周日</th>
+                                            <th>周一</th>
+                                            <th>周二</th>
+                                            <th>周三</th>
+                                            <th>周四</th>
+                                            <th>周五</th>
+                                            <th>周六</th>
+                                            <th>月累计</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each monthEnergy}}
+                                        <tr>
+                                            <td>
+                                                {{year}}年{{month}}月
+                                            </td>
+                                            <td>
+                                                {{{formatData.[0]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[1]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[2]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[3]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[4]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[5]}}}
+                                            </td>
+                                            <td>
+                                                {{{formatData.[6]}}}
+                                            </td>
+                                            <td>
+                                                {{total}}
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </script>
                         </div>
                     </div>
                 </div>

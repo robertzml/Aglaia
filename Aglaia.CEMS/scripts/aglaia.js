@@ -1,4 +1,4 @@
-
+﻿
 var aglaia = function() {
 	
     var handleInitTree = function ($dom) {
@@ -49,6 +49,36 @@ var aglaia = function() {
             autoclose: true
         });
     };
+   
+    var handleInitCalendarDatatable = function ($dom) {
+        var oTable = $dom.DataTable({
+           
+            // set the initial value
+            "pageLength": 3,
+
+            "language": {
+                "lengthMenu": "  _MENU_ 记录",
+                "sLengthMenu": "每页 _MENU_ 条记录",
+                "sInfo": "显示 _START_ 至 _END_ 共有 _TOTAL_ 条记录",
+                "sInfoEmpty": "记录为空",
+                "sInfoFiltered": " - 从 _MAX_ 条记录中",
+                "sZeroRecords": "结果为空",
+                "sSearch": "搜索:",
+                "paginate": {
+                    "previous": "Prev",
+                    "next": "Next",
+                    "last": "Last",
+                    "first": "First"
+                }
+            },
+
+            "pagingType": "bootstrap_full_number",
+
+            "dom": "<t><'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12' p>>", // horizobtal scrollable datatable
+        });
+
+        return oTable;
+    }
 	
 	return {
 		
@@ -70,6 +100,10 @@ var aglaia = function() {
 
 		initMonthPicker: function($dom) {
 		    handleInitMonthPicker($dom);
+		},
+
+		initCalendarTable: function($dom) {
+		    handleInitCalendarDatatable($dom);
 		},
 		
 		showLoading: function() {
