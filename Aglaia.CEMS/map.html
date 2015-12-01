@@ -1,0 +1,57 @@
+﻿<style>
+    .map {
+        height: 100%;
+        width: 100%;
+    }
+</style>
+
+ <!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+    <ul class="page-breadcrumb">
+        <li>
+            <span>主页</span>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>电表监测</span>
+        </li>
+    </ul>
+</div>
+<!-- END PAGE BAR -->
+<div class="row">
+    <div class="col-md-12">
+        <div id="map" class="map"></div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        var extent = [0, 0, 1280, 900];
+        var projection = new ol.proj.Projection({
+            code: 'xkcd-image',
+            units: 'pixels',
+            extent: extent
+        });
+
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+               new ol.layer.Image({
+                   source: new ol.source.ImageStatic({
+                       url: '/images/map.jpg',
+                       projection: projection,
+                       imageExtent: extent
+                   })
+               })
+            ],
+            view: new ol.View({
+                projection: projection,
+                center: ol.extent.getCenter(extent),
+                zoom: 2,
+                minZoom: 1,
+                maxZoom: 4
+            })
+        });
+    });
+</script>

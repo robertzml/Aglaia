@@ -4,7 +4,14 @@ var index = function() {
     var apiserver = "http://localhost:61070/";
 
 	var initPanelbar = function() {
-		$("#side-panelbar").kendoPanelBar();
+	    $("#side-panelbar").kendoPanelBar();
+
+	    $('#side-panelbar .side-link').click(function () {
+	        var url = $(this).attr('data-url');
+	        if (url && url != '') {
+	            $('#page-content-body').load(url);
+	        }
+	    });
 	};
 	
 	var loadBuildingTree = function() {
