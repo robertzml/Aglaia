@@ -66,6 +66,41 @@ namespace Aglaia.API.Controllers
 
             return data;
         }
+
+        private MaintainEnergy TransferToMaintain(DateTime start, DateTime end, List<Energy> energy)
+        {
+            MaintainEnergy data = new MaintainEnergy();
+            data.start = start;
+            data.end = end;
+            data.dailyEnergy = new List<MaintainDailyEnergy>();
+
+            for(DateTime step = start; step <= end; step = step.AddDays(1))
+            {
+                MaintainDailyEnergy dEnergy = new MaintainDailyEnergy();
+                dEnergy.year = step.Year;
+                dEnergy.month = step.Month;
+                dEnergy.day = step.Day;
+                dEnergy.energyData = energy.Where(r => r.time >= step && r.time < step.AddDays(1)).ToList();
+
+                StringBuilder sb1 = new StringBuilder();
+                for (int i = 0; i < 12; i++)
+                {                    
+                    sb1.Append(string.Format("<td>{0}</td>", dEnergy.energyData[i].value));
+                }
+                dEnergy.formatData1 = sb1.ToString();
+
+                StringBuilder sb2 = new StringBuilder();
+                for(int i = 12; i < 24; i++)
+                {
+                    sb2.Append(string.Format("<td>{0}</td>", dEnergy.energyData[i].value));
+                }
+                dEnergy.formatData2 = sb2.ToString();
+
+                data.dailyEnergy.Add(dEnergy);
+            }
+
+            return data;
+        }
         #endregion //Function
 
         #region Action
@@ -85,6 +120,14 @@ namespace Aglaia.API.Controllers
             var calendarEnergy = TransferToCalendar(start, end, energy);
 
             return calendarEnergy;
+        }
+
+        public MaintainEnergy GetMaintainEnergy(DateTime start, DateTime end)
+        {
+            var energy = this.energyRepository.GetHourRandom(start, end).ToList();
+            var maintainEnergy = TransferToMaintain(start, end, energy);
+
+            return maintainEnergy;
         }
         #endregion //Action
     }

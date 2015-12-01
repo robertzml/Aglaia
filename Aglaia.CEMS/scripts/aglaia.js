@@ -50,11 +50,13 @@ var aglaia = function() {
         });
     };
    
-    var handleInitCalendarDatatable = function ($dom) {
+    var handleInitCalendarDatatable = function ($dom, pageLength) {
         var oTable = $dom.DataTable({
            
             // set the initial value
-            "pageLength": 3,
+            "pageLength": pageLength,
+
+            "ordering": false,
 
             "language": {
                 "lengthMenu": "  _MENU_ 记录",
@@ -102,8 +104,8 @@ var aglaia = function() {
 		    handleInitMonthPicker($dom);
 		},
 
-		initCalendarTable: function($dom) {
-		    handleInitCalendarDatatable($dom);
+		initCalendarTable: function ($dom, pageLength) {
+		    handleInitCalendarDatatable($dom, pageLength);
 		},
 		
 		showLoading: function() {

@@ -1,4 +1,4 @@
-﻿<div id="page-header"></div>
+﻿<div id="header-template-html"></div>
 <script id="header-template" type="text/x-handlebars-template">
     <!-- BEGIN PAGE HEADER-->
     <!-- BEGIN PAGE BAR -->
@@ -67,7 +67,7 @@
             <a href="#tab_calendar" data-toggle="tab"> 用电日历 </a>
         </li>
         <li>
-            <a href="#tab_1_1_3" data-toggle="tab"> 数据维护 </a>
+            <a href="#tab_maintain" data-toggle="tab"> 数据维护 </a>
         </li>
     </ul>
     <div class="tab-content">
@@ -303,15 +303,69 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane" id="tab_1_1_3">
-            <p> Howdy, I'm in Section 3. </p>
-            <p>
-                Duis autem vel eum iriure dolor in hendrerit in vulputate. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum
-                iriure dolor in hendrerit in vulputate velit esse molestie consequat
-            </p>
-            <p>
-                <a class="btn yellow" href="ui_tabs_accordions_navs.html#tab_1_1_3" target="_blank"> Activate this tab via URL </a>
-            </p>
+        <div class="tab-pane" id="tab_maintain">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="icon-speech"></i>
+                                <span class="caption-subject bold"> 上报数据记录</span>
+                            </div>
+                            <div class="actions">
+                                <div class="input-group input-medium date date-picker input-daterange" id="maintain-range-picker">
+                                    <input type="text" class="form-control" name="datefrom2" id="datefrom2" value="2015-11-01">
+                                    <span class="input-group-addon">
+                                        至
+                                    </span>
+                                    <input type="text" class="form-control" name="dateto2" id="dateto2" value="2015-11-05">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="portlet-body">
+                            <div id="maintain-template-html"></div>
+                            <script id="maintain-template" type="text/x-handlebars-template">
+                                <table class="table table-bordered table-striped" id="maintain-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 100px;">日期</th>
+                                            <th>时段</th>
+                                            <th>0点</th>
+                                            <th>1点</th>
+                                            <th>2点</th>
+                                            <th>3点</th>
+                                            <th>4点</th>
+                                            <th>5点</th>
+                                            <th>6点</th>
+                                            <th>7点</th>
+                                            <th>8点</th>
+                                            <th>9点</th>
+                                            <th>10点</th>
+                                            <th>11点</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each dailyEnergy}}
+                                        <tr>
+                                            <td>
+                                                {{year}}年{{month}}月{{day}}日
+                                            </td>
+                                            <td>上午</td>
+                                            {{{formatData1}}}
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td>下午</td>
+                                            {{{formatData2}}}
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

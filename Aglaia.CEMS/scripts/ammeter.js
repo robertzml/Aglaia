@@ -13,7 +13,7 @@ var ammeter = function () {
     var loadAmmeter = function (id) {
         $.getJSON(apiserver + "api/ammeter/get/", { id: id }, function (response) {
 
-            renderHtml($("#header-template"), $('#page-header'), response);
+            renderHtml($("#header-template"), $('#header-template-html'), response);
             renderHtml($("#base-template"), $('#base-template-html'), response);
         });
     };
@@ -26,7 +26,19 @@ var ammeter = function () {
 
             renderHtml($("#calendar-template"), $('#calendar-template-html'), response);
 
-            aglaia.initCalendarTable($('#calendar-table'));
+            aglaia.initCalendarTable($('#calendar-table'), 3);
+        });
+    };
+
+    var loadMainEnergy = function () {
+        var start = $('#datefrom2').val();
+        var end = $('#dateto2').val();
+
+        $.getJSON(apiserver + "api/energy/GetMaintainEnergy/", { start: start, end: end }, function (response) {
+
+            renderHtml($("#maintain-template"), $('#maintain-template-html'), response);
+
+            aglaia.initCalendarTable($('#maintain-table'), 6);
         });
     };
 
@@ -78,6 +90,7 @@ var ammeter = function () {
     var initDatePicker = function () {
         $("#chart-datepicker").kendoDatePicker();
         aglaia.initMonthPicker($('#calendar-range-picker'));
+        aglaia.initDatePicker($('#maintain-range-picker'));
     };
 
     return {
@@ -86,7 +99,8 @@ var ammeter = function () {
             loadAmmeter(id);
             initChart();
             initDatePicker();
-            loadDaysEnergy();            
+            loadDaysEnergy();
+            loadMainEnergy();
         }
     }
 }();
