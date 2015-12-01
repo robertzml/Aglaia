@@ -9,6 +9,16 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 2px;
 }
 
+.portlet.light > .portlet-title > .actions .btn-icon-only {
+    float: right;
+    width: 34px;
+    height: 34px;
+}
+
+.portlet.light > .portlet-title > .actions .input-group {
+    float:right;
+}
+
 #calendar-table .calendar-date {
     font-size: 12px;
     font-weight: 400;
