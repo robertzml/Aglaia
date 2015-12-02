@@ -19,6 +19,39 @@ body, h1, h2, h3, h4, h5, h6 {
     float:right;
 }
 
+.map-wrapper {
+    display: block;
+    position: absolute;
+    top: 46px;
+    bottom: 0;
+    left: 235px;
+    right: 0;
+}
+
+.map .popover .arrow, .popover .arrow::after {
+    display: block !important;
+}
+
+.map .popover {
+    max-width: none;
+}
+
+.map-point-content {
+    display:block;
+    width: 300px;
+    height: 200px;
+}
+
+.map-point-content dt, .map-point-content dd {
+    font-size: 12px;
+}
+
+.map-point-content .tab1, .map-point-content .tab2 {
+    float: left;
+    margin-right: 15px;
+    font-size: 12px;
+}
+
 #calendar-table .calendar-date {
     font-size: 12px;
     font-weight: 400;

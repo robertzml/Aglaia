@@ -18,9 +18,9 @@
     </ul>
 </div>
 <!-- END PAGE BAR -->
-<div class="row">
-    <div class="col-md-12">
-        <div id="map" class="map"></div>
+<div class="map-wrapper">
+    <div id="map" class="map">
+        <div id="popup"></div>
     </div>
 </div>
 
@@ -33,25 +33,111 @@
             units: 'pixels',
             extent: extent
         });
+       
+
+        var pointFeature = new ol.Feature({
+            geometry: new ol.geom.Point([400, 550]),
+            name: '<div class="map-point-content"><p>行政楼</p></div>',
+            population: 4000,
+            rainfall: 500
+        });
+
+        var htmlcontent2 = '<div class="map-point-content"><h4 class="text-success" style="text-align:center;">食品楼</h4><dl><dt>用电评价</dt>' +
+            '<dd style="border-bottom: 1px #a3a3a3 solid;padding-top: 5px;height: 65px;">根据历史数据分析，该建筑周三平均用电为63度，<font class="text-success">低</font>' +
+            '于同类建筑（教学楼建筑）周三平均用电85度，目前该建筑今日已用电55.5度。</dd></dl>' +
+            '<div class="tab1"><strong>建筑类别：</strong>教学楼建筑<br><strong>建筑面积：</strong>23397.24㎡<br><strong>使用面积：</strong>12920.13㎡<br></div>' +
+            '<div class="tab2"><strong>今日用电：</strong><font class="tooltips text-primary" data-placement="top" data-original-title="统计时段数据完整">55.54</font>度<br><strong>本周用电：</strong><font class="tooltips text-primary" data-placement="top" data-original-title="统计时段数据完整">164.4</font>度<br><strong>本月用电：</strong><font class="tooltips text-primary" data-placement="top" data-original-title="统计时段数据完整">302.01</font>度<br></div>' +
+            '</div>';
+
+        var pointFeature2 = new ol.Feature({
+            geometry: new ol.geom.Point([560, 340]),
+            name: htmlcontent2,
+            population: 4000,
+            rainfall: 500
+        });
+
+        var vectorLayer = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: [pointFeature]
+            }),
+            style: new ol.style.Style({
+                image: new ol.style.Icon({
+                    anchor: [0.5, 0.5],
+                    anchorXUnits: 'pixels',
+                    anchorYUnits: 'pixels',
+                    opacity: 0.95,
+                    src: '/images/icon1.png'
+                })
+            })
+        });
+
+        var vectorLayer2 = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                features: [pointFeature2]
+            }),
+            style: new ol.style.Style({
+                image: new ol.style.Icon({
+                    anchor: [0.5, 0.5],
+                    anchorXUnits: 'pixels',
+                    anchorYUnits: 'pixels',
+                    opacity: 0.95,
+                    src: '/images/icon1.png'
+                })
+            })
+        });
+
 
         var map = new ol.Map({
             target: 'map',
             layers: [
-               new ol.layer.Image({
-                   source: new ol.source.ImageStatic({
-                       url: '/images/map.jpg',
-                       projection: projection,
-                       imageExtent: extent
+                new ol.layer.Image({
+                    source: new ol.source.ImageStatic({
+                        url: '/images/map.jpg',
+                        projection: projection,
+                        imageExtent: extent
                    })
-               })
+                }),
+                vectorLayer,
+                vectorLayer2
             ],
             view: new ol.View({
                 projection: projection,
                 center: ol.extent.getCenter(extent),
-                zoom: 2,
-                minZoom: 1,
-                maxZoom: 4
+                zoom: 3,
+                minZoom: 2,
+                maxZoom: 5,
+                extent: [400, 270, 860, 530]
             })
         });
+
+        var element = document.getElementById('popup');
+
+        var popup = new ol.Overlay({
+            element: element,
+            positioning: 'bottom-center',
+            stopEvent: false
+        });
+        map.addOverlay(popup);
+
+        // display popup on click
+        map.on('click', function (evt) {
+            var feature = map.forEachFeatureAtPixel(evt.pixel,
+                function (feature, layer) {
+                    return feature;
+                });
+            if (feature) {
+                popup.setPosition(evt.coordinate);
+                $(element).popover({
+                    'placement': 'top',
+                    'html': true,
+                    'content': feature.get('name')
+                });
+                $(element).popover('show');
+            } else {
+                $(element).popover('destroy');
+            }
+        });
+
+       
     });
 </script>
