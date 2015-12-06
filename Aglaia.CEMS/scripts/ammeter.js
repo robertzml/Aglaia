@@ -16,7 +16,7 @@ var ammeter = function () {
         });
     };
 
-    var loadDaysEnergy = function () {
+    var loadCalendarEnergy = function () {
         var start = $('#datefrom').val();
         var end = $('#dateto').val();
         
@@ -28,7 +28,7 @@ var ammeter = function () {
         });
     };
 
-    var loadMainEnergy = function () {
+    var loadMaintainEnergy = function () {
         var start = $('#datefrom2').val();
         var end = $('#dateto2').val();
 
@@ -71,7 +71,7 @@ var ammeter = function () {
             dataSource: {
                 transport: {
                     read: {
-                        url: apiserver + "api/energy/get",
+                        url: aglaia.apiserver + "api/energy/get",
                         data: { date: '2015-11-12' },
                         dataType: "json"
                     }
@@ -85,20 +85,60 @@ var ammeter = function () {
         });
     };
 
-    var initDatePicker = function () {
-        $("#chart-datepicker").kendoDatePicker();
+
+    var initBaseTab = function () {
+        $("#chart-datepicker").kendoDatePicker({
+            change: function () {
+                var value = this.val();
+
+            }
+        });
+        initChart();
+    };
+
+    var initCalendarTab = function () {
         aglaia.initMonthPicker($('#calendar-range-picker'));
+        loadCalendarEnergy();
+
+        $('a#calendar-refresh').click(function () {
+            loadCalendarEnergy();
+        });
+    };
+
+    var initMaintainTab = function () {
         aglaia.initDatePicker($('#maintain-range-picker'));
+        loadMaintainEnergy();
+
+        $('a#maintain-refresh').click(function () {
+            loadMaintainEnergy();
+        });
     };
 
     return {
         init: function () {
             var id = localStorage['ammeterParam'];
             loadAmmeter(id);
-            initChart();
-            initDatePicker();
-            loadDaysEnergy();
-            loadMainEnergy();
+          
+            initBaseTab();
+            initCalendarTab();
+            initMaintainTab();
+        },
+
+        svgOnLoad: function (loadEvent) {
+
+            var result = parseFloat(145775).toFixed(2).toString();
+            var h0 = "";
+            for (var i = 0; i < (10 - result.length) ; i++) {
+                h0 += "0";
+            }
+            if (result == 0) {
+                loadEvent.target.ownerDocument.getElementById("Energy").firstChild.data = "0000000.00";
+                loadEvent.target.ownerDocument.getElementById("Power").firstChild.data = "0000000.00";
+            }
+            else {
+                loadEvent.target.ownerDocument.getElementById("Energy").firstChild.data = h0 + result;
+                loadEvent.target.ownerDocument.getElementById("Power").firstChild.data = h0 + result;
+            }
         }
     }
 }();

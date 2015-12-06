@@ -78,7 +78,7 @@ namespace Aglaia.Data
                 id = 200001,
                 number = "B1000601",
                 name = "一级表1",
-                roomName = "配电间",
+                roomName = "一层",
                 departmentName = "公共用电",
                 buildingId = 2,
                 online = true,
