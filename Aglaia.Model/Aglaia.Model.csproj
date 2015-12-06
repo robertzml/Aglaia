@@ -43,6 +43,7 @@
     <Compile Include="Ammeter.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Energy.cs" />
+    <Compile Include="MapPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TreeNode.cs" />
   </ItemGroup>

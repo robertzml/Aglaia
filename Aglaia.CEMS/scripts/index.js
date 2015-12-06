@@ -1,7 +1,5 @@
 
 var index = function() {
-	
-    var apiserver = "http://localhost:61070/";
 
 	var initPanelbar = function() {
 	    $("#side-panelbar").kendoPanelBar();
@@ -39,7 +37,7 @@ var index = function() {
 
 	    var tree1 = [];
 
-	    $.getJSON(apiserver + "api/tree/get/1", function (response) {
+	    $.getJSON(aglaia.apiserver + "api/tree/get/1", function (response) {
 	        $.each(response, function (i, item) {
 	            var parent;
 	            if (item.parentId == 0)

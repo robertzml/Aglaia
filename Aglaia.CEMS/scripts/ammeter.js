@@ -1,8 +1,6 @@
 ﻿
 var ammeter = function () {
 
-    var apiserver = "http://localhost:61070/";
-
     var renderHtml = function ($template, $html, data) {
         var source = $template.html();
         var template = Handlebars.compile(source);
@@ -11,7 +9,7 @@ var ammeter = function () {
     };
 
     var loadAmmeter = function (id) {
-        $.getJSON(apiserver + "api/ammeter/get/", { id: id }, function (response) {
+        $.getJSON(aglaia.apiserver + "api/ammeter/get/", { id: id }, function (response) {
 
             renderHtml($("#header-template"), $('#header-template-html'), response);
             renderHtml($("#base-template"), $('#base-template-html'), response);
@@ -22,7 +20,7 @@ var ammeter = function () {
         var start = $('#datefrom').val();
         var end = $('#dateto').val();
         
-        $.getJSON(apiserver + "api/energy/GetCalendarEnergy/", { start: start, end: end }, function (response) {
+        $.getJSON(aglaia.apiserver + "api/energy/GetCalendarEnergy/", { start: start, end: end }, function (response) {
 
             renderHtml($("#calendar-template"), $('#calendar-template-html'), response);
 
@@ -34,7 +32,7 @@ var ammeter = function () {
         var start = $('#datefrom2').val();
         var end = $('#dateto2').val();
 
-        $.getJSON(apiserver + "api/energy/GetMaintainEnergy/", { start: start, end: end }, function (response) {
+        $.getJSON(aglaia.apiserver + "api/energy/GetMaintainEnergy/", { start: start, end: end }, function (response) {
 
             renderHtml($("#maintain-template"), $('#maintain-template-html'), response);
 

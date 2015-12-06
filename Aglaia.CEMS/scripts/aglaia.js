@@ -114,6 +114,8 @@ var aglaia = function() {
 		
 		hideLoading: function() {
 			$('div#ajax-load').hide();
-		}
+		},
+
+		apiserver: "http://localhost:61070/"
 	}
 }();
