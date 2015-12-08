@@ -8,11 +8,26 @@ var ammeter = function () {
         $html.html(template(data));
     };
 
+    var loopLoad = function (ammeter, loopNumber) {
+        var data = {
+            ammeter: ammeter,
+            loop: ammeter.loops[loopNumber - 1]
+        };
+
+        renderHtml($("#base-template"), $('#base-template-html'), data);
+    };
+
     var loadAmmeter = function (id) {
         $.getJSON(aglaia.apiserver + "api/ammeter/get/", { id: id }, function (response) {
 
             renderHtml($("#header-template"), $('#header-template-html'), response);
-            renderHtml($("#base-template"), $('#base-template-html'), response);
+            loopLoad(response, 1);
+
+            $('.loop-toggle > label').click(function () {
+               
+                var loopNumber = $(this).children('input').val();
+                loopLoad(response, loopNumber);
+            });
         });
     };
 
@@ -89,8 +104,7 @@ var ammeter = function () {
     var initBaseTab = function () {
         $("#chart-datepicker").kendoDatePicker({
             change: function () {
-                var value = this.val();
-
+               
             }
         });
         initChart();
@@ -117,6 +131,11 @@ var ammeter = function () {
     return {
         init: function () {
             var id = localStorage['ammeterParam'];
+
+            Handlebars.registerHelper("formatDate", function (time) {
+                return moment(time).format('YYYY-MM-DD HH:mm:ss');
+            });
+
             loadAmmeter(id);
           
             initBaseTab();

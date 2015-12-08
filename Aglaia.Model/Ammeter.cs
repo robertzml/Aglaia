@@ -37,14 +37,36 @@ namespace Aglaia.Model
         /// </summary>
         public bool online { get; set; }
 
-        public double dailyUsage { get; set; }
+        public double totalDailyUsage { get; set; }
 
-        public double monthUsage { get; set; }
+        public double totalMonthUsage { get; set; }
 
         /// <summary>
         /// 计量属性
         /// </summary>
         public string property { get; set; }
+
+        public List<Loop> loops { get; set; }
+
+        public DateTime communicateTime { get; set; }
+
+        public string saveModel { get; set; }
+
+        public string address { get; set; }
+    }
+
+    /// <summary>
+    /// 回路
+    /// </summary>
+    public class Loop
+    {
+        public int number { get; set; }
+
+        public string name { get; set; }
+
+        public double dailyUsage { get; set; }
+
+        public double monthUsage { get; set; }
 
         /// <summary>
         /// 用电分项
@@ -63,11 +85,5 @@ namespace Aglaia.Model
         public double multiply { get; set; }
 
         public double unitPrice { get; set; }
-
-        public DateTime communicateTime { get; set; }
-
-        public string saveModel { get; set; }
-
-        public string address { get; set; }
     }
 }

@@ -9,6 +9,10 @@ body, h1, h2, h3, h4, h5, h6 {
     padding-top: 2px;
 }
 
+.portlet.light {
+    margin-bottom: 20px;
+}
+
 .portlet.light > .portlet-title > .actions .btn-icon-only {
     float: right;
     width: 34px;
@@ -18,6 +22,19 @@ body, h1, h2, h3, h4, h5, h6 {
 .portlet.light > .portlet-title > .actions .input-group {
     float:right;
 }
+
+.loop-toggle .btn.grey.active {
+    background-color: #217ebd;
+    border-color: #217ebd;
+    color: #fff;
+}
+
+.btn.blue.active:not(.btn-outline), .btn.blue.focus:not(.btn-outline), .btn.blue:active:not(.btn-outline), .btn.blue:focus:not(.btn-outline), .btn.blue:hover:not(.btn-outline) {
+  background-color: #217ebd;
+  border-color: #217ebd;
+  color: #fff;
+}
+
 
 .map-wrapper {
     display: block;

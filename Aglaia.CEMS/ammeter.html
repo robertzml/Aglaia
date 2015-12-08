@@ -17,44 +17,23 @@
             </li>
         </ul>
         <div class="page-toolbar">
-            <div class="btn-group pull-right">
-                <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown">
-                    Actions
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                <ul class="dropdown-menu pull-right" role="menu">
-                    <li>
-                        <a href="#">
-                            <i class="icon-bell"></i> Action
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="icon-shield"></i> Another action
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="icon-user"></i> Something else here
-                        </a>
-                    </li>
-                    <li class="divider"> </li>
-                    <li>
-                        <a href="#">
-                            <i class="icon-bag"></i> Separated link
-                        </a>
-                    </li>
-                </ul>
+            <div class="btn-group pull-right loop-toggle" data-toggle="buttons">
+                <label class="btn grey active">
+                    <input type="radio" class="toggle" name="loop" id="loop1" value="1"> 回路 1
+                </label>
+                <label class="btn grey">
+                    <input type="radio" class="toggle" name="loop" id="loop2" value="2"> 回路 2
+                </label>
+                <label class="btn grey">
+                    <input type="radio" class="toggle" name="loop" id="loop3" value="3"> 回路 3
+                </label>
+                <label class="btn grey">
+                    <input type="radio" class="toggle" name="loop" id="loop4" value="4"> 回路 4
+                </label>
             </div>
         </div>
     </div>
     <!-- END PAGE BAR -->
-    <!-- BEGIN PAGE TITLE-->
-    <h3 class="page-title">
-        {{name}}
-        <small>{{number}}</small>
-    </h3>
-    <!-- END PAGE TITLE-->
     <!-- END PAGE HEADER-->
 </script>
 <!-- BEGIN PAGE CONTENT-->
@@ -80,8 +59,8 @@
                             <div class="portlet-title">
                                 <div class="caption">
                                     <i class="icon-speech"></i>
-                                    <span class="caption-subject bold uppercase"> {{roomName}}</span>
-                                    <span class="caption-helper">{{name}}</span>
+                                    <span class="caption-subject bold uppercase"> {{ammeter.name}}</span>
+                                    <span class="caption-helper">{{loop.name}}</span>
                                 </div>
                                 <div class="actions">
                                     <a href="javascript:;" class="btn btn-circle btn-default">
@@ -94,106 +73,172 @@
                             </div>
                             <div class="portlet-body">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <table class="table table-condensed table-striped table-bordered table-hover">
-                                            <tr>
-                                                <td>
-                                                    电表编号
-                                                </td>
-                                                <td>
-                                                    {{number}}
-                                                </td>
-                                                <td>
-                                                    隶属机构
-                                                </td>
-                                                <td>
-                                                    {{departmentName}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    当天用电
-                                                </td>
-                                                <td>
-                                                    {{dailyUsage}} 千瓦时
-                                                </td>
-                                                <td>
-                                                    计量属性
-                                                </td>
-                                                <td>
-                                                    {{property}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    当月用电
-                                                </td>
-                                                <td>
-                                                    {{monthUsage}} 千瓦时
-                                                </td>
-                                                <td>
-                                                    用电分项
-                                                </td>
-                                                <td>
-                                                    {{subitem}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    电表示数
-                                                </td>
-                                                <td>
-                                                    {{ammeterDisplay}} 千瓦时
-                                                </td>
-                                                <td>
-                                                    用电性质
-                                                </td>
-                                                <td>
-                                                    {{nature}}
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    累计示数
-                                                </td>
-                                                <td>
-                                                    {{totalDisplay}} 千瓦时
-                                                </td>
-                                                <td>
-                                                    电表倍率
-                                                </td>
-                                                <td>
-                                                    {{multiply}}倍
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    通讯时间
-                                                </td>
-                                                <td>
-                                                    {{communicateTime}}
-                                                </td>
-                                                <td>
-                                                    电费单价
-                                                </td>
-                                                <td>
-                                                    {{unitPrice}}元
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    节能模型
-                                                </td>
-                                                <td>
-                                                    {{saveModel}}
-                                                </td>
-                                                <td>
-                                                    安装地址
-                                                </td>
-                                                <td>
-                                                    {{address}}
-                                                </td>
-                                            </tr>
+                                            <thead>
+                                                <tr>
+                                                    <th>电表信息</th>
+                                                    <th>数据</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        电表编号
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.number}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        隶属机构
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.departmentName}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        房间名称
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.roomName}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        计量属性
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.property}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        当天总用电
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.totalDailyUsage}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        当月总用电
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.totalMonthUsage}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        通讯时间
+                                                    </td>
+                                                    <td>
+                                                        {{formatDate ammeter.communicateTime}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        节能模型
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.saveModel}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        安装地址
+                                                    </td>
+                                                    <td>
+                                                        {{ammeter.address}}
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <table class="table table-condensed table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>回路信息</th>
+                                                    <th>数据</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        回路名称
+                                                    </td>
+                                                    <td>
+                                                        {{loop.name}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        用电分项
+                                                    </td>
+                                                    <td>
+                                                        {{loop.subitem}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        用电性质
+                                                    </td>
+                                                    <td>
+                                                        {{loop.nature}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        当天用电
+                                                    </td>
+                                                    <td>
+                                                        {{loop.dailyUsage}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        当月用电
+                                                    </td>
+                                                    <td>
+                                                        {{loop.monthUsage}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        电表示数
+                                                    </td>
+                                                    <td>
+                                                        {{loop.ammeterDisplay}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        累计示数
+                                                    </td>
+                                                    <td>
+                                                        {{loop.totalDisplay}} 千瓦时
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        电表倍率
+                                                    </td>
+                                                    <td>
+                                                        {{loop.multiply}}倍
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        电费单价
+                                                    </td>
+                                                    <td>
+                                                        {{loop.unitPrice}}元
+                                                    </td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                     <div class="col-md-4">
