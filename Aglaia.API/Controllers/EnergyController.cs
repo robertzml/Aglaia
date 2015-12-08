@@ -114,7 +114,7 @@ namespace Aglaia.API.Controllers
             return this.energyRepository.GetDayRandom(start, end).ToList();
         }
 
-        public CalendarEnergy GetCalendarEnergy(DateTime start, DateTime end)
+        public CalendarEnergy GetCalendarEnergy(int ammeterId, int loop, DateTime start, DateTime end)
         {
             var energy = this.energyRepository.GetDayRandom(start, end).ToList();
             var calendarEnergy = TransferToCalendar(start, end, energy);

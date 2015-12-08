@@ -1,6 +1,9 @@
 ﻿
 var ammeter = function () {
 
+    var id;
+    var loop = 1;
+
     var renderHtml = function ($template, $html, data) {
         var source = $template.html();
         var template = Handlebars.compile(source);
@@ -15,6 +18,8 @@ var ammeter = function () {
         };
 
         renderHtml($("#base-template"), $('#base-template-html'), data);
+        loadCalendarEnergy();
+        loadMaintainEnergy();
     };
 
     var loadAmmeter = function (id) {
@@ -26,6 +31,7 @@ var ammeter = function () {
             $('.loop-toggle > label').click(function () {
                
                 var loopNumber = $(this).children('input').val();
+                loop = loopNumber;
                 loopLoad(response, loopNumber);
             });
         });
@@ -35,7 +41,7 @@ var ammeter = function () {
         var start = $('#datefrom').val();
         var end = $('#dateto').val();
         
-        $.getJSON(aglaia.apiserver + "api/energy/GetCalendarEnergy/", { start: start, end: end }, function (response) {
+        $.getJSON(aglaia.apiserver + "api/energy/GetCalendarEnergy/", { ammeterId: id, loop: loop, start: start, end: end }, function (response) {
 
             renderHtml($("#calendar-template"), $('#calendar-template-html'), response);
 
@@ -102,18 +108,16 @@ var ammeter = function () {
 
 
     var initBaseTab = function () {
-        $("#chart-datepicker").kendoDatePicker({
-            change: function () {
-               
-            }
-        });
+        aglaia.initDatePicker($('#chart-datepicker'), true)
+            .on('changeDate', function (e) {
+                //alert(e.date);
+            });
+
         initChart();
     };
 
     var initCalendarTab = function () {
         aglaia.initMonthPicker($('#calendar-range-picker'));
-        loadCalendarEnergy();
-
         $('a#calendar-refresh').click(function () {
             loadCalendarEnergy();
         });
@@ -121,7 +125,6 @@ var ammeter = function () {
 
     var initMaintainTab = function () {
         aglaia.initDatePicker($('#maintain-range-picker'));
-        loadMaintainEnergy();
 
         $('a#maintain-refresh').click(function () {
             loadMaintainEnergy();
@@ -130,7 +133,7 @@ var ammeter = function () {
 
     return {
         init: function () {
-            var id = localStorage['ammeterParam'];
+            id = localStorage['ammeterParam'];
 
             Handlebars.registerHelper("formatDate", function (time) {
                 return moment(time).format('YYYY-MM-DD HH:mm:ss');

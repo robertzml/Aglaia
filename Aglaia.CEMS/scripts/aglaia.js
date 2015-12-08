@@ -23,7 +23,7 @@ var aglaia = function() {
 
     var handleInitDatePicker = function ($dom, today) {
         if (today == true) {
-            $dom.datepicker({
+            return $dom.datepicker({
                 format: "yyyy-mm-dd",
                 weekStart: 7,
                 language: "zh-CN",
@@ -31,7 +31,7 @@ var aglaia = function() {
                 todayHighlight: true
             });
         } else {
-            $dom.datepicker({
+            return $dom.datepicker({
                 format: "yyyy-mm-dd",
                 weekStart: 7,
                 language: "zh-CN",
@@ -97,7 +97,7 @@ var aglaia = function() {
 		},
 	
 		initDatePicker: function($dom, today) {
-			handleInitDatePicker($dom, today);
+			return handleInitDatePicker($dom, today);
 		},
 
 		initMonthPicker: function($dom) {
