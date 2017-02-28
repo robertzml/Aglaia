@@ -65,5 +65,30 @@ namespace Aglaia.Data
 
             return data;
         }
+
+        public IEnumerable<AmmeterEnergy> GetBuildingRandom(int buildingId, DateTime start, DateTime end)
+        {
+            List<AmmeterEnergy> data = new List<AmmeterEnergy>();
+            Random random = new Random(buildingId + start.Day);
+
+            for (int i = 0; i < 10; i++)
+            {
+                AmmeterEnergy ae = new AmmeterEnergy();
+
+                ae.ammeterId = random.Next(10000);
+                ae.roomName = "A" + (i + 1).ToString();
+                ae.startDisplay = random.Next(10000);
+                ae.endDisplay = ae.startDisplay + random.Next(1000);
+                ae.multiply = 1;
+                ae.subitem = "照明";
+                ae.nature = "生活";
+                ae.startTime = start;
+                ae.endTime = end;
+
+                data.Add(ae);
+            }
+
+            return data;
+        }
     }
 }

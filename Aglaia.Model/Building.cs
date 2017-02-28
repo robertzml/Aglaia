@@ -19,15 +19,12 @@ namespace Aglaia.Model
         /// <summary>
         /// 名称
         /// </summary>
-        public string text { get; set; }
+        public string name { get; set; }
 
         public bool hasChildren { get; set; }
 
         public int parentId { get; set; }
 
         public int type { get; set; }
-
-        public string spriteCssClass { get; set; }
-
     }
 }

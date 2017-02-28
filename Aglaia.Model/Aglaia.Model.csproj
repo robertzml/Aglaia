@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ammeter.cs" />
+    <Compile Include="AmmeterEnergy.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Energy.cs" />
     <Compile Include="MapPoint.cs" />

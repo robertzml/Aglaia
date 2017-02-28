@@ -28,5 +28,7 @@ namespace Aglaia.Model
         public int type { get; set; }
 
         public int ammeterId { get; set; }
+
+        public int objectId { get; set; }
     }
 }

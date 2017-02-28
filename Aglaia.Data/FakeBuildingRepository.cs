@@ -27,58 +27,33 @@ namespace Aglaia.Data
 
             Building building = new Building
             {
-                id = 1,
-                text = "江南大学",
+                id = 100000,
+                name = "江南大学",
                 hasChildren = true,
                 type = 1,
-                parentId = 0,
-                spriteCssClass = "fa fa-folder"
+                parentId = 0
             };
             buildings.Add(building);
 
             Building building2 = new Building
             {
-                id = 2,
-                text = "行政楼",
+                id = 100001,
+                name = "1号公寓",
                 hasChildren = true,
                 type = 2,
-                parentId = 1,
-                spriteCssClass = "fa fa-folder"
+                parentId = 100000
             };
             buildings.Add(building2);
 
             Building building3 = new Building
             {
-                id = 3,
-                text = "教学楼",
+                id = 100002,
+                name = "2号公寓",
                 hasChildren = false,
-                parentId = 1,
-                type = 2,
-                spriteCssClass = "fa fa-folder"
+                parentId = 100000,
+                type = 2
             };
             buildings.Add(building3);
-
-            Building building4 = new Building
-            {
-                id = 100001,
-                text = "A102",
-                hasChildren = false,
-                type = 3,
-                parentId = 2,
-                spriteCssClass = "fa fa-file"
-            };
-            buildings.Add(building4);
-
-            Building building5 = new Building
-            {
-                id = 100002,
-                text = "A103",
-                hasChildren = false,
-                type = 3,
-                parentId = 2,
-                spriteCssClass = "fa fa-file"
-            };
-            buildings.Add(building5);
         }
         #endregion //Function
 

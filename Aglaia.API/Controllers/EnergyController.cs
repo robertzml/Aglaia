@@ -129,6 +129,11 @@ namespace Aglaia.API.Controllers
 
             return maintainEnergy;
         }
+
+        public List<AmmeterEnergy> GetBuildingEnergy(int buildingId, DateTime start, DateTime end)
+        {
+            return this.energyRepository.GetBuildingRandom(buildingId, start, end).ToList();
+        }
         #endregion //Action
     }
 }
